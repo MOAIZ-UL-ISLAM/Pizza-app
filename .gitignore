@@ -1,38 +1,67 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# === General ===
+.DS_Store
+*.pem
+*.log
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
 
-# Dependencies
-node_modules
-.pnp
+# === Node / Next.js ===
+node_modules/
+.pnp/
 .pnp.js
 
 # Local env files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example  # Keep env example if needed
 
-# Testing
-coverage
-
-# Turbo
-.turbo
-
-# Vercel
-.vercel
-
-# Build Outputs
+# Build outputs
 .next/
 out/
-build
-dist
+build/
+dist/
 
+# Testing & Coverage
+coverage/
+.nyc_output/
 
-# Debug
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Misc
-.DS_Store
-*.pem
+# Vercel
+.vercel/
+
+# Turbo
+.turbo/
+
+# === Python / Django ===
+# Python environments
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+*.env
+
+# Django specific
+db.sqlite3
+*.sqlite3
+/media/
+staticfiles/
+static/
+media/
+local_settings.py
+
+# PyCharm / VSCode / Misc IDEs
+.idea/
+.vscode/
+*.code-workspace
+
+# Migrations
+**/migrations/
+!**/migrations/__init__.py

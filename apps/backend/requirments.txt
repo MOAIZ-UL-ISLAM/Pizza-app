@@ -1,0 +1,10 @@
+Django
+djangorestframework
+djangorestframework-simplejwt
+djoser
+psycopg2-binary
+python-dotenv
+django-cors-headers
+django-ratelimit
+Pillow
+drf-yasg
