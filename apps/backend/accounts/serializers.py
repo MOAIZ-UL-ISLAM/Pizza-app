@@ -22,11 +22,10 @@ class UserCreateSerializer(BaseUserCreateSerializer):
     class Meta(BaseUserCreateSerializer.Meta):
         model = User
         fields = ['id', 'email', 'username', 'password',
-                  'confirm_password', 'first_name', 'last_name']
+                  'confirm_password', ]
         extra_kwargs = {
             'password': {'write_only': True},
-            'first_name': {'required': False},
-            'last_name': {'required': False},
+
         }
 
     def validate_password(self, value):
@@ -52,7 +51,7 @@ class UserSerializer(BaseUserSerializer):
     class Meta(BaseUserSerializer.Meta):
         model = User
         fields = ['id', 'email', 'username',
-                  'first_name', 'last_name', 'date_joined']
+                  'date_joined']
         read_only_fields = ['id', 'email', 'date_joined']
 
 

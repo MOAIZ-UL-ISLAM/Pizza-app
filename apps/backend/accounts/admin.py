@@ -8,16 +8,15 @@ from .models import User, OTP
 class UserAdmin(BaseUserAdmin):
     """Admin configuration for the User model."""
 
-    list_display = ('email', 'username', 'first_name',
-                    'last_name', 'is_staff', 'is_active', 'date_joined')
+    list_display = ('email', 'username',
+                    'is_staff', 'is_active', 'date_joined')
     list_filter = ('is_staff', 'is_active', 'date_joined')
-    search_fields = ('email', 'username', 'first_name', 'last_name')
+    search_fields = ('email', 'username',)
     ordering = ('-date_joined',)
     readonly_fields = ('date_joined', 'last_login')
 
     fieldsets = (
         (None, {'fields': ('email', 'username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name')}),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),

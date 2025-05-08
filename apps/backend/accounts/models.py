@@ -59,9 +59,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # Additional profile fields
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
+    # # Additional profile fields
+    # first_name = models.CharField(_('first name'), max_length=30, blank=True)
+    # last_name = models.CharField(_('last name'), max_length=30, blank=True)
 
     objects = UserManager()
 
@@ -76,14 +76,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-    def get_full_name(self):
+    def get_user_name(self):
         """Return the user's full name."""
-        full_name = f"{self.first_name} {self.last_name}"
-        return full_name.strip()
-
-    def get_short_name(self):
-        """Return the user's short name."""
-        return self.first_name
+        user_name = f"{self.username}"
+        return user_name.strip()
 
 
 class OTP(models.Model):
